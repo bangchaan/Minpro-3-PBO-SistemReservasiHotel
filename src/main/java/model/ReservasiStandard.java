@@ -1,6 +1,6 @@
 package model;
 
-public class ReservasiStandard extends Reservasi {
+public class ReservasiStandard extends Reservasi implements DapatDidenda {
 
     private int dendaPersen;
 
@@ -30,12 +30,12 @@ public class ReservasiStandard extends Reservasi {
     }
 
     @Override
-    public int hitungDenda() {
-        return hitungTotalBiaya() * dendaPersen / 100;
+    public String getDetailTambahan() {
+        return "Denda batal: " + dendaPersen + "%";
     }
 
     @Override
-    public String getDetailTambahan() {
-        return "Denda batal: " + dendaPersen + "%";
+    public int hitungDenda() {
+        return hitungTotalBiaya() * dendaPersen / 100;
     }
 }

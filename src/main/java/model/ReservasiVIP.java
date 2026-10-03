@@ -50,15 +50,15 @@ public class ReservasiVIP extends Reservasi {
     }
 
     @Override
-    public int hitungTotalBiaya() {
-        return super.hitungTotalBiaya() + biayaPenyambutan;
-    }
-
-    @Override
     public String getDetailTambahan() {
         return "Penyambutan: " + jenisPenyambutan
                 + " (+Rp"
                 + String.format("%,d", biayaPenyambutan)
                 + ")";
+    }
+
+    @Override
+    public int hitungTotalBiaya() {
+        return super.hitungTotalBiaya() + biayaPenyambutan;
     }
 }

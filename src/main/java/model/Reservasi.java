@@ -1,6 +1,6 @@
 package model;
 
-public class Reservasi {
+public abstract class Reservasi {
 
     public static final int MAKS_NAMA = 25;
 
@@ -77,19 +77,11 @@ public class Reservasi {
         return false;
     }
 
-    public String getTipe() {
-        return "Umum";
-    }
+    public abstract String getTipe();
+
+    public abstract String getDetailTambahan();
 
     public int hitungTotalBiaya() {
         return jumlahMalam * hargaPerMalam;
-    }
-
-    public int hitungDenda() {
-        return 0;
-    }
-
-    public String getDetailTambahan() {
-        return "-";
     }
 }

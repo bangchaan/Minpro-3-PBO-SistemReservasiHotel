@@ -10,12 +10,27 @@ public class ReservasiView {
         System.out.println("   TRACKING RESERVASI HOTEL");
         System.out.println("==============================");
         System.out.println("1. Tambah Reservasi");
-        System.out.println("2. Tampilkan Semua Reservasi");
+        System.out.println("2. Tampilkan Reservasi");
         System.out.println("3. Check-In Tamu");
         System.out.println("4. Check-Out Tamu");
         System.out.println("5. Update Reservasi");
         System.out.println("6. Hapus Reservasi");
         System.out.println("0. Keluar");
+    }
+
+    public void tampilkanMenuTampilkan() {
+        System.out.println("\n--- TAMPILKAN RESERVASI ---");
+        System.out.println("1. Tampilkan Semua Reservasi");
+        System.out.println("2. Tampilkan Berdasarkan Status");
+        System.out.println("0. Kembali");
+    }
+
+    public void tampilkanMenuStatus() {
+        System.out.println("\n--- PILIH STATUS ---");
+        System.out.println("1. Menunggu");
+        System.out.println("2. Check-In");
+        System.out.println("3. Check-Out");
+        System.out.println("0. Kembali");
     }
 
     public void tampilkanPilihanTipe() {
@@ -39,13 +54,26 @@ public class ReservasiView {
         System.out.println("0. Kembali");
     }
 
-    public void tampilkanDaftar(ArrayList <Reservasi> daftar) {
+    // OVERLOADING versi 1: hanya menerima daftar, menampilkan semua data
+    public void tampilkanDaftar(ArrayList<Reservasi> daftar) {
         System.out.println("\n--- DAFTAR RESERVASI ---");
         if (daftar.isEmpty()) {
             System.out.println("Belum ada reservasi.");
             return;
         }
+        cetakTabel(daftar);
+    }
 
+    public void tampilkanDaftar(ArrayList<Reservasi> daftar, String status) {
+        System.out.println("\n--- RESERVASI " + status.toUpperCase() + " ---");
+        if (daftar.isEmpty()) {
+            System.out.println("Tidak ada reservasi dengan status " + status + ".");
+            return;
+        }
+        cetakTabel(daftar);
+    }
+
+    private void cetakTabel(ArrayList<Reservasi> daftar) {
         System.out.printf("%-4s | %-15s | %-9s | %-6s | %-9s | %-12s | %s%n",
                 "ID", "Nama Tamu", "Tipe", "Malam", "Status", "Total Biaya", "Detail");
         System.out.println("--------------------------------------------------------------------------------");
